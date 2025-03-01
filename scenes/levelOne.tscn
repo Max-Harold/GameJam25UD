@@ -6,14 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="2_iqruw"]
 [ext_resource type="PackedScene" uid="uid://c2xfbqyiyoava" path="res://environment/tile.tscn" id="3_shg1m"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="4_1xy0u"]
+[ext_resource type="PackedScene" uid="uid://c021h2a0qbebr" path="res://environment/dirt.tscn" id="4_4giqr"]
+[ext_resource type="PackedScene" uid="uid://ccx8tm8dpwkrk" path="res://environment/stone.tscn" id="6_msnth"]
 
 [node name="LevelOne" type="Node2D"]
 material = ExtResource("1_m6kpf")
 script = ExtResource("1_g37ie")
 
-[node name="Player" parent="." instance=ExtResource("1_3aucs")]
+[node name="Player" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("1_3aucs")]
 position = Vector2(153, 281)
 scale = Vector2(2.45772, 2.45772)
+healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,10 +78,6 @@ scale = Vector2(0.48, 0.48)
 position = Vector2(898, 395)
 scale = Vector2(0.48, 0.48)
 
-[node name="RigidBody2D14" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(960, 395)
-scale = Vector2(0.48, 0.48)
-
 [node name="RigidBody2D15" parent="." instance=ExtResource("3_shg1m")]
 position = Vector2(1084, 395)
 scale = Vector2(0.48, 0.48)
@@ -89,10 +88,6 @@ scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D17" parent="." instance=ExtResource("3_shg1m")]
 position = Vector2(1146, 395)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D18" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1208, 395)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D19" parent="." instance=ExtResource("3_shg1m")]
@@ -107,10 +102,6 @@ scale = Vector2(0.48, 0.48)
 position = Vector2(1394, 395)
 scale = Vector2(0.48, 0.48)
 
-[node name="RigidBody2D22" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1456, 395)
-scale = Vector2(0.48, 0.48)
-
 [node name="RigidBody2D23" parent="." instance=ExtResource("3_shg1m")]
 position = Vector2(1580, 395)
 scale = Vector2(0.48, 0.48)
@@ -121,18 +112,6 @@ scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D25" parent="." instance=ExtResource("3_shg1m")]
 position = Vector2(1642, 395)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D26" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1704, 395)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D27" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1828, 395)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D28" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1766, 395)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D29" parent="." instance=ExtResource("3_shg1m")]
@@ -280,43 +259,591 @@ position = Vector2(3998, 395)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D65" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(960, 333)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D66" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1146, 333)
+position = Vector2(960, 332)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D67" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1146, 271)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D68" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1332, 333)
-scale = Vector2(0.48, 0.48)
-
-[node name="RigidBody2D69" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1332, 271)
+position = Vector2(1208, 269)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D70" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1332, 209)
+position = Vector2(1456, 208)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D74" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1580, 209)
+position = Vector2(1704, 206)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D75" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1642, 209)
+position = Vector2(1766, 206)
 scale = Vector2(0.48, 0.48)
 
 [node name="RigidBody2D76" parent="." instance=ExtResource("3_shg1m")]
-position = Vector2(1704, 209)
+position = Vector2(1828, 206)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D71" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(154, 458)
 scale = Vector2(0.48, 0.48)
 
 [node name="ColorHound" parent="." instance=ExtResource("4_1xy0u")]
-position = Vector2(1889, 276)
+position = Vector2(2133, 280)
 
 [node name="ColorHound2" parent="." instance=ExtResource("4_1xy0u")]
-position = Vector2(776, 282)
+position = Vector2(1859, 279)
+
+[node name="RigidBody2D72" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(216, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D73" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(278, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D77" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(340, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D78" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(402, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D79" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(464, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D80" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(526, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D81" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(588, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D82" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(650, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D83" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(712, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D84" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(774, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D85" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(836, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D86" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(898, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D87" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(960, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D88" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1022, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D89" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1084, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D90" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1146, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D91" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1208, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D92" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1270, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D93" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1332, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D94" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1394, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D95" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1456, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D96" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1518, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D97" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1580, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D98" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1642, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D99" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1704, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D100" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1766, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D101" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1828, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D102" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1890, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D103" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1952, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D104" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2014, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D105" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2076, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D106" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2138, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D107" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2200, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D108" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2262, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D109" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2324, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D110" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2386, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D111" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2448, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D112" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2510, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D113" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2572, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D114" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2634, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D115" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2696, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D116" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2758, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D117" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2820, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D118" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2882, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D119" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(2944, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D120" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3006, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D121" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3068, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D122" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3130, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D123" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3192, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D124" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3254, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D125" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3316, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D126" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3378, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D127" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3440, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D128" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3502, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D129" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3564, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D130" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3626, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D131" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3688, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D132" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3750, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D133" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3812, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D134" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3874, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D135" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3936, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D136" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(3998, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D137" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(4060, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D138" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(960, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D139" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1208, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D140" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1208, 332)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D141" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1456, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D142" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1456, 332)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D143" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1456, 269)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D144" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1704, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D145" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1766, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D146" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1828, 458)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D147" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1704, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D148" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1766, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D149" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(1828, 395)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D14" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1084, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D18" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1022, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D22" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(960, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D26" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(898, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D27" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(836, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D28" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(774, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D66" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(712, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D68" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(650, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D69" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(588, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D150" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(526, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D151" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(464, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D152" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(402, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D153" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(340, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D154" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(278, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D155" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(216, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D156" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(154, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D157" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2076, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D158" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2014, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D159" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1952, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D160" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1890, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D161" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1828, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D162" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1766, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D163" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1704, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D164" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1642, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D165" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1580, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D166" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1518, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D167" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1456, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D168" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1394, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D169" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1332, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D170" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1270, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D171" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1208, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D172" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(1146, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D173" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3068, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D174" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3006, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D175" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2944, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D176" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2882, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D177" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2820, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D178" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2758, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D179" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2696, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D180" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2634, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D181" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2572, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D182" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2510, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D183" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2448, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D184" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2386, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D185" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2324, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D186" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2262, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D187" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2200, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D188" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(2138, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D189" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4060, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D190" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3998, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D191" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3936, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D192" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3874, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D193" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3812, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D194" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3750, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D195" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3688, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D196" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3626, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D197" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3564, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D198" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3502, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D199" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3440, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D200" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3378, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D201" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3316, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D202" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3254, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D203" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3192, 521)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D204" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(3130, 521)
+scale = Vector2(0.48, 0.48)

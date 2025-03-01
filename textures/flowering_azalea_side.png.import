@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://42bky42do3nw"
-path="res://.godot/imported/grassTop.png-86453562967e2f4d074940fa28c84c58.ctex"
+uid="uid://tpjkc0cgu4st"
+path="res://.godot/imported/flowering_azalea_side.png-c9763a5d9c09591cf91941fd41450a26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://grassTop.png"
-dest_files=["res://.godot/imported/grassTop.png-86453562967e2f4d074940fa28c84c58.ctex"]
+source_file="res://textures/flowering_azalea_side.png"
+dest_files=["res://.godot/imported/flowering_azalea_side.png-c9763a5d9c09591cf91941fd41450a26.ctex"]
 
 [params]
 
