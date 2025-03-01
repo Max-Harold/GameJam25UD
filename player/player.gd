@@ -25,6 +25,7 @@ const fireball_pad: float = 50
 @onready var hurt=$Hurt
 @onready var scream=$Scream
 @onready var walk=$Walk
+@onready var jump=$Jump
 var lastplaydwlk=0.5
 var playedscream=false
 
@@ -66,14 +67,12 @@ func _process(_delta):
 	if not is_dead:
 		if Input.is_action_pressed("move_right") and is_on_floor():
 			if lastplaydwlk>.4:
-				print('playing')
 				walk.play()
 				lastplaydwlk=0.0
 			#_animated_sprite.flip_h = false
 			_animated_sprite.play("walk")
 		elif (Input.is_action_pressed("move_left") or  Input.is_action_pressed("move_left")) and is_on_floor():
 			if lastplaydwlk>.4:
-				print('playing')
 				walk.play()
 				lastplaydwlk=0.0
 			#_animated_sprite.flip_h = true
@@ -102,6 +101,7 @@ func _physics_process(delta:  float) -> void:
 	if not is_dead:
 		# Handle jump.
 		if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_up")) and is_on_floor():
+			jump.play()
 			velocity.y = JUMP_VELOCITY
 			_animated_sprite.play("jump")
 
