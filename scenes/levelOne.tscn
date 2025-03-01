@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://v3pukyck27fx"]
+[gd_scene load_steps=19 format=3 uid="uid://v3pukyck27fx"]
 
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="1_3aucs"]
 [ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_m6kpf"]
-[ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="2_iqruw"]
+[ext_resource type="PackedScene" path="res://player/player_health.tscn" id="2_iqruw"]
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="2_y7jld"]
 [ext_resource type="PackedScene" uid="uid://bk8p2xedgpk7q" path="res://background/background.tscn" id="3_8tcbv"]
 [ext_resource type="PackedScene" uid="uid://c2xfbqyiyoava" path="res://environment/grass.tscn" id="3_shg1m"]
@@ -13,12 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://y0kl0cgygda6" path="res://environment/gravel.tscn" id="8_vyqqc"]
 [ext_resource type="PackedScene" uid="uid://c7k46hr77lmh3" path="res://environment/stonealt.tscn" id="9_njnup"]
 [ext_resource type="PackedScene" uid="uid://cvx3dxhsxmka3" path="res://environment/coal.tscn" id="10_nhyjq"]
-[ext_resource type="PackedScene" path="res://environment/path.tscn" id="13_78sa1"]
-[ext_resource type="PackedScene" path="res://environment/gold.tscn" id="14_shckq"]
+[ext_resource type="PackedScene" uid="uid://eggeidt2jvcx" path="res://environment/path.tscn" id="13_78sa1"]
+[ext_resource type="PackedScene" uid="uid://ciban304d4lkl" path="res://environment/gold.tscn" id="14_shckq"]
 [ext_resource type="PackedScene" uid="uid://dc32hueq6atf5" path="res://potion.tscn" id="15_ws2do"]
 [ext_resource type="PackedScene" uid="uid://1wol57ye2v8x" path="res://enemies/foirwizard/foirwizard.tscn" id="17_m5bys"]
+[ext_resource type="AudioStream" uid="uid://bb2o7f4bs8kw8" path="res://sounds/music.mp3" id="18_pj2i7"]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" groups=["root"]]
 material = ExtResource("1_m6kpf")
 position = Vector2(232, -23)
 script = ExtResource("2_y7jld")
@@ -2005,6 +2006,11 @@ scale = Vector2(0.48, 0.48)
 [node name="RigidBody2D452" parent="." instance=ExtResource("9_njnup")]
 position = Vector2(5458, 22)
 scale = Vector2(0.48, 0.48)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_pj2i7")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
