@@ -23,4 +23,4 @@ func _on_player_dies() -> void:
 	game_over()
 
 func _on_restart_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/levelOne.tscn")	
