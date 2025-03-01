@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = true
 		if right_raycast.is_colliding():
 			var collider = right_raycast.get_collider()
-			if collider.name == "Player":
+			if collider.is_in_group("player"):
 				collider.update_health(Globals.damage_done["color_hound"])
 				
 	elif not movingRight and ((not left_down_raycast.is_colliding() and is_on_floor()) or left_raycast.is_colliding()):
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.flip_h = false
 		if left_raycast.is_colliding():
 			var collider = left_raycast.get_collider()
-			if collider.name == "Player":
+			if collider.is_in_group("player"):
 				collider.update_health(Globals.damage_done["color_hound"])
 				
 
@@ -60,7 +60,7 @@ func _process(delta:float)->void:
 			sum=0.0
 			var inst=foirball.instantiate()
 			player = get_tree().get_first_node_in_group('player')
-			inst.set_init_data(player.position - position,false)
+			inst.set_init_data(player.get_center_position() - position,false)
 			add_child(inst)
 
 func update_health(change)->void:

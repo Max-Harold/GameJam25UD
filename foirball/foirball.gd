@@ -5,6 +5,8 @@ var direction:Vector2
 const fireball_speed: float = 1000.0
 var dest_vector: Vector2
 var plyrspwnd:bool
+var left_source: bool = false
+
 func set_init_data(data,playrspwnd):
 	dest_vector = data
 	var pos=get_global_position()
@@ -25,10 +27,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if plyrspwnd:
 		if body.is_in_group('enemy'):
 			body.update_health(Globals.damage_done['foirball'])
-		if not body.is_in_group('player'):
+		if not body.is_in_group('player') and left_source:
 			queue_free()
 	else:
 		if body.is_in_group('player'):
 			body.update_health(Globals.damage_done['foirball'])
-		if body.name != "foirwizard":
+		if not body.is_in_group('foirwizard') and left_source:
 			queue_free()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if plyrspwnd and body.is_in_group('player'):
+		left_source = true
+	elif not plyrspwnd and body.is_in_group('foirwizard'):
+		left_source = true
