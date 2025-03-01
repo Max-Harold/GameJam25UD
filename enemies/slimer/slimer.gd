@@ -1,22 +1,18 @@
-extends CharacterBody2D
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-var xvl=-SPEED
-func _read()->void:
-	material.set_shader_parameter('lvl',Globals.lvl)
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	move_and_slide()
+extends RigidBody2D
+@onready var left_raycast=$left_raycast
+@onready var right_raycast=$right_raycast
+func _ready() -> void:
+	set_linear_velocity(Vector2(200,200))
+func pythag(v:Vector2):
+	return sqrt(v.x*v.x+v.y*v.y)
+func _physics_process(delta:float)->void:
+	if abs(linear_velocity.x)<=500:
+		if left_raycast.is_colliding():
+			linear_velocity.x+=100
+		elif right_raycast.is_colliding():
+			linear_velocity.x-=100
+func _on_collision(body)->void:
+	if left_raycast.is_colliding():
+		linear_velocity.x=1000
+	elif right_raycast.is_colliding():
+		linear_velocity.x=-1000

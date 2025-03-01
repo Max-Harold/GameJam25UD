@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="3_adyui"]
 [ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="4_0avg7"]
 [ext_resource type="PackedScene" uid="uid://1wol57ye2v8x" path="res://enemies/foirwizard/foirwizard.tscn" id="5_4n3ym"]
+[ext_resource type="PackedScene" uid="uid://dk71x8fkicr2g" path="res://enemies/slimer/slimer.tscn" id="7_qjgxa"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bebdf")
@@ -42,8 +43,10 @@ position = Vector2(427, 195)
 scale = Vector2(2.245, 2.245)
 healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
-[node name="foirwizard" parent="." instance=ExtResource("5_4n3ym")]
-position = Vector2(606, 362)
+
+[node name="foirwizard" parent="." groups=["enemy"] instance=ExtResource("5_4n3ym")]
+position = Vector2(1432, 344)
+
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -69,6 +72,10 @@ text = "GAME OVER"
 layout_mode = 2
 theme_override_font_sizes/font_size = 41
 text = "Restart"
+
+[node name="Slimer" parent="." instance=ExtResource("7_qjgxa")]
+position = Vector2(544, 320)
+scale = Vector2(2.245, 2.245)
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

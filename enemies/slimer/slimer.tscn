@@ -1,17 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://dk71x8fkicr2g"]
 
-[ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_ntxr3"]
 [ext_resource type="Script" path="res://enemies/slimer/slimer.gd" id="2_0dpm6"]
 [ext_resource type="Texture2D" uid="uid://da8qd65t6gjce" path="res://enemies/slimer/slimer.png" id="3_6ila7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m31r4"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m1fmv"]
+friction = 0.0
+bounce = 1.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-material = ExtResource("1_ntxr3")
+[sub_resource type="CircleShape2D" id="CircleShape2D_rnbny"]
+
+[node name="Slimer" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_m1fmv")
 script = ExtResource("2_0dpm6")
 
 [node name="Slimer" type="Sprite2D" parent="."]
 texture = ExtResource("3_6ila7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_m31r4")
+shape = SubResource("CircleShape2D_rnbny")
+
+[node name="left_raycast" type="RayCast2D" parent="."]
+target_position = Vector2(-24, 0)
+
+[node name="right_raycast" type="RayCast2D" parent="."]
+target_position = Vector2(24, 0)
