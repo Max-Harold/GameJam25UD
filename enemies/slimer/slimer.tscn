@@ -9,7 +9,9 @@ bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rnbny"]
 
-[node name="Slimer" type="RigidBody2D"]
+[node name="Slimer" type="RigidBody2D" groups=["enemy", "slimer"]]
+collision_layer = 3
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_m1fmv")
 script = ExtResource("2_0dpm6")
 
