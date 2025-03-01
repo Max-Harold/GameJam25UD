@@ -11,9 +11,11 @@ size = Vector2(128, 128)
 physics_material_override = SubResource("PhysicsMaterial_4av4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+use_parent_material = true
 shape = SubResource("RectangleShape2D_qqwoa")
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
+use_parent_material = true
 position = Vector2(3.8147e-06, -3.51667e-06)
 scale = Vector2(4, 4.0625)
 texture = ExtResource("1_u6y7v")
