@@ -1,20 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqjybhkw7giac"]
+[gd_scene load_steps=14 format=3 uid="uid://vb8mge1kpwtp"]
 
 [ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_4h0yd"]
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="2_1wj56"]
 [ext_resource type="PackedScene" uid="uid://bk8p2xedgpk7q" path="res://background/background.tscn" id="3_cw042"]
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="4_xfn4w"]
-[ext_resource type="PackedScene" path="res://player/player_health.tscn" id="5_gtoa3"]
+[ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="5_gtoa3"]
 [ext_resource type="PackedScene" uid="uid://c2xfbqyiyoava" path="res://environment/grass.tscn" id="6_1logg"]
 [ext_resource type="PackedScene" uid="uid://c021h2a0qbebr" path="res://environment/dirt.tscn" id="8_ucse4"]
 [ext_resource type="PackedScene" uid="uid://y0kl0cgygda6" path="res://environment/gravel.tscn" id="9_kwap8"]
 [ext_resource type="PackedScene" uid="uid://ccx8tm8dpwkrk" path="res://environment/stone.tscn" id="10_cnajy"]
 [ext_resource type="PackedScene" uid="uid://c7k46hr77lmh3" path="res://environment/stonealt.tscn" id="11_x7af4"]
 [ext_resource type="PackedScene" uid="uid://cvx3dxhsxmka3" path="res://environment/coal.tscn" id="12_vqhl6"]
-[ext_resource type="PackedScene" uid="uid://eggeidt2jvcx" path="res://environment/path.tscn" id="14_y6de3"]
-[ext_resource type="PackedScene" uid="uid://ciban304d4lkl" path="res://environment/gold.tscn" id="15_hei70"]
+[ext_resource type="PackedScene" path="res://environment/path.tscn" id="14_y6de3"]
+[ext_resource type="PackedScene" path="res://environment/gold.tscn" id="15_hei70"]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" groups=["root"]]
 material = ExtResource("1_4h0yd")
 position = Vector2(232, -23)
 script = ExtResource("2_1wj56")
@@ -34,24 +34,33 @@ healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
 [node name="PlayerHealth" parent="CanvasLayer" instance=ExtResource("5_gtoa3")]
 
-[node name="GameOver" type="CenterContainer" parent="CanvasLayer"]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 140
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOver"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="Game" type="Label" parent="CanvasLayer/GameOver/VBoxContainer"]
+[node name="Game" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 75
-text = "GAME OVER"
+theme_override_font_sizes/font_size = 30
+text = "You restored color to the kingdom!"
+horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="CanvasLayer/GameOver/VBoxContainer"]
+[node name="Game2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "You can now shoot fireballs using the mouse!"
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 41
 text = "Restart"
 
@@ -1948,4 +1957,4 @@ position = Vector2(1496, 394)
 scale = Vector2(0.48, 0.48)
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
-[connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
