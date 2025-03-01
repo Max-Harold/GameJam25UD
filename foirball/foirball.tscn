@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dufjw3nb02rfa"]
 
-[ext_resource type="Material" path="res://material.tres" id="1_ylhmy"]
+[ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_ylhmy"]
 [ext_resource type="Texture2D" uid="uid://b511l1hhnfgk7" path="res://foirball/New Piskel (11).png" id="2_6a87k"]
 [ext_resource type="Script" path="res://foirball/foirball.gd" id="2_inwri"]
 
