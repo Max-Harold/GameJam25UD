@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dc32hueq6atf5" path="res://potion.tscn" id="15_ws2do"]
 [ext_resource type="PackedScene" uid="uid://1wol57ye2v8x" path="res://enemies/foirwizard/foirwizard.tscn" id="17_m5bys"]
 
-[node name="LevelOne" type="Node2D"]
+[node name="LevelOne" type="Node2D" groups=["root"]]
 material = ExtResource("1_m6kpf")
 position = Vector2(232, -23)
 script = ExtResource("2_y7jld")
