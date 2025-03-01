@@ -97,6 +97,8 @@ func _physics_process(delta:  float) -> void:
 		if collision.get_position().y > global_position.y:
 			if collider.is_in_group('stompable'):
 				collider.queue_free()
+		if collider.is_in_group('slimer'):
+			update_health(Globals.damage_done['slimer'])
 		#else:
 			#if not is_invincible:
 				#if collider.is_in_group('color_hound'):

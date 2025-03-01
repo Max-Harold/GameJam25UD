@@ -5,6 +5,7 @@ var damage_done = {
 	"spikes": -100,
 	"color_hound": -20,
 	"foirwizard": -10,
+	"slimer": -10
 }
 var lvl=0
 # Called when the node enters the scene tree for the first time.
