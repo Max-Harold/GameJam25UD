@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bkg6injskej1a"]
 
-[ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_g8wv1"]
+[ext_resource type="Material" uid="uid://b2eenycq81hmr" path="res://material.tres" id="1_g8wv1"]
 [ext_resource type="Script" path="res://enemies/color_hound/color_hound.gd" id="1_glpc0"]
 [ext_resource type="Texture2D" uid="uid://dpcbk3i6sxk1o" path="res://enemies/color_hound/graphics/hell-hound-idle.png" id="1_q7hxe"]
 [ext_resource type="Texture2D" uid="uid://btykr5gf8xonk" path="res://enemies/color_hound/graphics/hell-hound-run.png" id="2_2fyql"]
@@ -98,7 +98,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk6sm"]
 size = Vector2(47.3515, 29.492)
 
-[node name="ColorHound" type="CharacterBody2D" groups=["color_hound", "enemy"]]
+[node name="ColorHound" type="CharacterBody2D" groups=["color_hound", "enemy", "stompable"]]
 material = ExtResource("1_g8wv1")
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_glpc0")

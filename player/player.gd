@@ -15,6 +15,7 @@ var health: int = 100
 @export var JUMP_VELOCITY = -500.0
 
 const fireball_scale: float = .5
+const fireball_pad: float = 50
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -31,7 +32,7 @@ func update_health(delta_health: int):
 	if health == 0:
 		die()
 	elif delta_health < 0 and not is_invincible:
-		_animated_sprite.modulate = Color(1,1,1,.6)
+		material.set_shader_parameter('alpha', .6)
 		is_invincible = true
 		accum_time = 0
 
@@ -47,19 +48,24 @@ func _process(_delta):
 		if accum_time >= invincibility_duration:
 			accum_time = 0
 			is_invincible = false
-			_animated_sprite.modulate = Color(1,1,1,1)
+			material.set_shader_parameter('alpha', 1)
 
 	if not is_dead:
 		if Input.is_action_pressed("move_right") and is_on_floor():
-			_animated_sprite.flip_h = false
+			#_animated_sprite.flip_h = false
 			_animated_sprite.play("walk")
 		elif (Input.is_action_pressed("move_left") or  Input.is_action_pressed("move_left")) and is_on_floor():
-			_animated_sprite.flip_h = true
+			#_animated_sprite.flip_h = true
 			_animated_sprite.play("walk")
 		elif is_on_floor():
 			_animated_sprite.play("idle")
 		else:
 			_animated_sprite.stop()
+			
+		if Input.is_action_pressed("move_left"):
+			_animated_sprite.flip_h = true
+		elif Input.is_action_pressed("move_right"):
+			_animated_sprite.flip_h = false
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.
@@ -83,22 +89,29 @@ func _physics_process(delta:  float) -> void:
 	$Camera2D.align()
 	for i in range(get_slide_collision_count()):
 		var collision: KinematicCollision2D = get_slide_collision(i)
-		
 		var collider = collision.get_collider()
+		if collider.is_in_group("spikes"):
+			update_health(Globals.damage_done['spikes'])
 		if collision.get_position().y > global_position.y:
-			#print(collider.name)
-			if collider.name == "ColorHound" or collider.name == "foirwizard":
+			if collider.is_in_group('stompable'):
 				collider.queue_free()
-		else:
-			if collider.name == "ColorHound" and not is_invincible:
-				update_health(Globals.damage_done["color_hound"])
-			
+		#else:
+			#if not is_invincible:
+				#if collider.is_in_group('color_hound'):
+					#update_health(Globals.damage_done["color_hound"])
+				#elif collider.is_in_group('foirwizard'):
+					#update_health(Globals.damage_done["foirwizard"])
+
+func get_center_position():
+	return $ChestMarker.global_position
 
 func _input(event)->void:
-	if event is InputEventMouseButton:
-		if event.pressed and Globals.lvl!=0:
-			var inst=foirball.instantiate()
-			inst.scale = Vector2(fireball_scale, fireball_scale)
-			print($Camera2D.get_global_mouse_position())
-			inst.set_init_data($Camera2D.get_global_mouse_position() - position,true)
-			add_child(inst)
+	if not is_dead:
+		if event is InputEventMouseButton:
+			if event.pressed and Globals.lvl!=0:
+				var inst=foirball.instantiate()
+				inst.position = $ChestMarker.position
+				inst.scale = Vector2(fireball_scale, fireball_scale)
+				inst.set_init_data($Camera2D.get_global_mouse_position() - global_position, true)
+				inst.position += inst.direction * fireball_pad * fireball_scale
+				add_child(inst)
