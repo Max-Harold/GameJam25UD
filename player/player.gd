@@ -60,11 +60,3 @@ func _physics_process(delta:  float) -> void:
 			if collider.name == "ColorHound":
 				update_health(Globals.damage_done["color_hound"])
 			
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass
-	#if area.is_in_group("foirball"):
-		#update_health(Globals.damage_done["foirball"])
-	#elif area.is_in_group("spike"):
-		#update_health(Globals.damage_done["spike"])
-	#elif area.is_in_group("color_hound"):
-		#update_health(Globals.damage_done["color_hound"])
