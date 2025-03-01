@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw1j0nu7440dh"]
+
+[ext_resource type="PackedScene" uid="uid://b7wx4ic7bw7hv" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
+[ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="2_akfne"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_akfne")]
+position = Vector2(358, 161)
+SPEED = 200.0
+
+[node name="Wall1" parent="." instance=ExtResource("1_mb6cc")]
+position = Vector2(311, 292)
+scale = Vector2(0.425, 4.04)
+
+[node name="Wall2" parent="." instance=ExtResource("1_mb6cc")]
+position = Vector2(663, 296)
+scale = Vector2(0.255, 4.04)
+
+[node name="TmpPlatform" parent="." instance=ExtResource("1_mb6cc")]
+position = Vector2(368, 463)
