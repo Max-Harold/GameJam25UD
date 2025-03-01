@@ -30,8 +30,18 @@ func _physics_process(delta: float) -> void:
 	if movingRight and ((not right_down_raycast.is_colliding() and is_on_floor()) or right_raycast.is_colliding()) :
 		x_velocity = -x_velocity
 		animated_sprite.flip_h = false
+		if right_raycast.is_colliding():
+			var collider = right_raycast.get_collider()
+			if collider.name == "Player":
+				collider.update_health(Globals.damage_done["color_hound"])
+				
 	elif not movingRight and ((not left_down_raycast.is_colliding() and is_on_floor()) or left_raycast.is_colliding()):
 		x_velocity = -x_velocity
 		animated_sprite.flip_h = true
+		if left_raycast.is_colliding():
+			var collider = left_raycast.get_collider()
+			if collider.name == "Player":
+				collider.update_health(Globals.damage_done["color_hound"])
+				
 
 	move_and_slide()

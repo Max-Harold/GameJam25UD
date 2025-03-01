@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc7jnute1v1jg"]
+
+[ext_resource type="Script" path="res://player/player_health.gd" id="1_bsbhm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_261fs"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u51k4"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="PlayerHealth" type="ProgressBar"]
+offset_left = 818.0
+offset_top = 18.0
+offset_right = 1133.0
+offset_bottom = 45.0
+theme_override_styles/background = SubResource("StyleBoxFlat_261fs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u51k4")
+step = 1.0
+value = 100.0
+show_percentage = false
+script = ExtResource("1_bsbhm")
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 103.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 21
+text = "HP: 100"

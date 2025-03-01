@@ -97,7 +97,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk6sm"]
 size = Vector2(47.3515, 29.492)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="ColorHound" type="CharacterBody2D" groups=["color_hound", "enemy"]]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_glpc0")
 
@@ -106,7 +106,7 @@ position = Vector2(21.4615, 12.6292)
 sprite_frames = SubResource("SpriteFrames_ahv2m")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.801828
+frame_progress = 0.135383
 speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -114,16 +114,22 @@ position = Vector2(23.5449, 14.7885)
 shape = SubResource("RectangleShape2D_vk6sm")
 
 [node name="LeftDownRaycast" type="RayCast2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="RightDownRaycast" type="RayCast2D" parent="."]
 position = Vector2(46.8, 0.4)
 
 [node name="LeftRaycast" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 19.6)
 target_position = Vector2(-5, 0)
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(46.8, 17.6)
-scale = Vector2(1, 1)
 target_position = Vector2(5, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["color_hound", "enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(23.5449, 14.7885)
+shape = SubResource("RectangleShape2D_vk6sm")
