@@ -14,6 +14,8 @@ var health: int = 100
 @export var SPEED = 350.0
 @export var JUMP_VELOCITY = -500.0
 
+const fireball_scale: float = .5
+
 @onready var _animated_sprite = $AnimatedSprite2D
 
 var foirball:PackedScene
@@ -48,10 +50,10 @@ func _process(_delta):
 			_animated_sprite.modulate = Color(1,1,1,1)
 
 	if not is_dead:
-		if Input.is_action_pressed("ui_right") and is_on_floor():
+		if Input.is_action_pressed("move_right") and is_on_floor():
 			_animated_sprite.flip_h = false
 			_animated_sprite.play("walk")
-		elif Input.is_action_pressed("ui_left") and is_on_floor():
+		elif (Input.is_action_pressed("move_left") or  Input.is_action_pressed("move_left")) and is_on_floor():
 			_animated_sprite.flip_h = true
 			_animated_sprite.play("walk")
 		elif is_on_floor():
@@ -71,20 +73,20 @@ func _physics_process(delta:  float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if not is_dead:
 		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	
+	$Camera2D.align()
 	for i in range(get_slide_collision_count()):
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		
 		var collider = collision.get_collider()
 		if collision.get_position().y > global_position.y:
-			print(collider.name)
+			#print(collider.name)
 			if collider.name == "ColorHound" or collider.name == "foirwizard":
 				collider.queue_free()
 		else:
@@ -96,5 +98,7 @@ func _input(event)->void:
 	if event is InputEventMouseButton:
 		if event.pressed and Globals.lvl!=0:
 			var inst=foirball.instantiate()
-			inst.set_init_data(event.position-position,true)
+			inst.scale = Vector2(fireball_scale, fireball_scale)
+			print($Camera2D.get_global_mouse_position())
+			inst.set_init_data($Camera2D.get_global_mouse_position() - position,true)
 			add_child(inst)
