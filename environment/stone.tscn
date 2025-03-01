@@ -18,9 +18,5 @@ shape = SubResource("RectangleShape2D_qqwoa")
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
 use_parent_material = true
-<<<<<<< HEAD:environment/tile.tscn
-position = Vector2(3.8147e-06, -3.51667e-06)
-=======
->>>>>>> main:environment/stone.tscn
 scale = Vector2(4, 4.0625)
 texture = ExtResource("1_hr2nm")
