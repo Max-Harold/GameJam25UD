@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal dies
 
 @export var camera_x_minimum: float = 750.0
+@export var camera_x_maximum: float = 5085.0
 @export var camera_y_maximum: float = 325.0
 
 var is_dead: bool = false
@@ -51,7 +52,7 @@ func die():
 
 func _process(_delta):
 	var camera_pos: Vector2 = $Camera2D.global_position
-	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
+	$Camera2D.global_position = Vector2(clamp(global_position.x, camera_x_minimum, camera_x_maximum), min(global_position.y, camera_y_maximum))
 	material.set_shader_parameter('lvl',Globals.lvl)
 	if is_invincible:
 		accum_time += _delta
