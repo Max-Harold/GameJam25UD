@@ -15,22 +15,32 @@ script = ExtResource("1_bebdf")
 [node name="Spikes" parent="." instance=ExtResource("2_p4q68")]
 position = Vector2(1231, 403)
 scale = Vector2(1.375, 1.375)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Spikes2" parent="." instance=ExtResource("2_p4q68")]
 position = Vector2(1053, 398)
 scale = Vector2(1.375, 1.375)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Wall1" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(311, 292)
 scale = Vector2(0.425, 4.04)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Wall2" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(875, 298)
 scale = Vector2(0.255, 4.04)
+collision_layer = 3
+collision_mask = 3
 
 [node name="TmpPlatform" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(487, 463)
 scale = Vector2(2.06156, 2.07098)
+collision_layer = 3
+collision_mask = 3
 
 [node name="ColorHound" parent="." instance=ExtResource("2_akfne")]
 position = Vector2(988, 204)
@@ -74,6 +84,9 @@ text = "Restart"
 [node name="Slimer" parent="." instance=ExtResource("7_qjgxa")]
 position = Vector2(544, 320)
 scale = Vector2(2.245, 2.245)
+disable_mode = 2
+collision_layer = 1
+collision_mask = 1
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

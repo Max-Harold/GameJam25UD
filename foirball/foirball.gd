@@ -35,6 +35,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	#print(body.name)
 	if plyrspwnd:
 		if body.is_in_group('enemy'):
+			print(body.name)
 			body.update_health(Globals.damage_done['foirball'])
 		if not body.is_in_group('player'):
 			#print("removing after "+body.name)
