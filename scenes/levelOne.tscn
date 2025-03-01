@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cvx3dxhsxmka3" path="res://environment/coal.tscn" id="10_nhyjq"]
 [ext_resource type="PackedScene" uid="uid://eggeidt2jvcx" path="res://environment/path.tscn" id="13_78sa1"]
 [ext_resource type="PackedScene" uid="uid://ciban304d4lkl" path="res://environment/gold.tscn" id="14_shckq"]
-[ext_resource type="PackedScene" path="res://potion.tscn" id="15_ws2do"]
+[ext_resource type="PackedScene" uid="uid://dc32hueq6atf5" path="res://potion.tscn" id="15_ws2do"]
 
 [node name="LevelOne" type="Node2D"]
 material = ExtResource("1_m6kpf")
@@ -1573,7 +1573,87 @@ position = Vector2(1984, 394)
 scale = Vector2(0.48, 0.48)
 
 [node name="Potion" parent="." instance=ExtResource("15_ws2do")]
-position = Vector2(4055, 335)
+position = Vector2(4022, 71)
+
+[node name="RigidBody2D72" parent="." instance=ExtResource("3_shg1m")]
+position = Vector2(4118, 394)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D73" parent="." instance=ExtResource("3_shg1m")]
+position = Vector2(4178, 394)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D96" parent="." instance=ExtResource("3_shg1m")]
+position = Vector2(4300, 394)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D108" parent="." instance=ExtResource("3_shg1m")]
+position = Vector2(4239, 394)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D141" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(4118, 456)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D341" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(4178, 456)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D342" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(4239, 456)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D343" parent="." instance=ExtResource("4_4giqr")]
+position = Vector2(4300, 456)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D389" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4300, 518)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D390" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4239, 518)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D391" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4178, 518)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D392" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4118, 518)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D393" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4300, 580)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D394" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4239, 580)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D395" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4178, 580)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D396" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4118, 580)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D397" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4300, 642)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D398" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4239, 642)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D399" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4178, 642)
+scale = Vector2(0.48, 0.48)
+
+[node name="RigidBody2D400" parent="." instance=ExtResource("6_msnth")]
+position = Vector2(4118, 642)
+scale = Vector2(0.48, 0.48)
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
