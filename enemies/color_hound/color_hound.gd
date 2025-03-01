@@ -12,6 +12,8 @@ var x_velocity: float = -SPEED
 @onready var right_raycast: RayCast2D = $RightRaycast
 @onready var left_raycast: RayCast2D = $LeftRaycast
 
+var health=30
+
 func _ready() -> void:
 	material.set_shader_parameter('lvl',Globals.lvl)
 	x_velocity = -SPEED
@@ -45,3 +47,8 @@ func _physics_process(delta: float) -> void:
 				
 
 	move_and_slide()
+
+func update_health(change:int)->void:
+	health+=change
+	if health<=0:
+		queue_free()

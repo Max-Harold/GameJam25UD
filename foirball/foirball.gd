@@ -22,7 +22,12 @@ func _process(delta: float)->void:
 	pos += fireball_speed * delta * direction
 	set_global_position(pos)
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not plyrspwnd:
+	if plyrspwnd:
+		if body.is_in_group('enemy'):
+			body.update_health(Globals.damage_done['foirball'])
+		if not body.is_in_group('player'):
+			queue_free()
+	else:
 		if body.is_in_group('player'):
 			body.update_health(Globals.damage_done['foirball'])
 		if body.name != "foirwizard":

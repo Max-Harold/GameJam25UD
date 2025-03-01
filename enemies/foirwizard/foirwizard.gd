@@ -2,6 +2,7 @@ extends CharacterBody2D
 var foirball:PackedScene
 var sum=0.0
 var player
+var health=50
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -61,3 +62,8 @@ func _process(delta:float)->void:
 			player = get_tree().get_first_node_in_group('player')
 			inst.set_init_data(player.position - position,false)
 			add_child(inst)
+
+func update_health(change)->void:
+	health+=change
+	if health<=0:
+		queue_free()
