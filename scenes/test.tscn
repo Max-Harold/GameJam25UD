@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cw1j0nu7440dh"]
+[gd_scene load_steps=9 format=3 uid="uid://cw1j0nu7440dh"]
 
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="1_bebdf"]
-[ext_resource type="PackedScene" uid="uid://b7wx4ic7bw7hv" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
+[ext_resource type="PackedScene" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="2_akfne"]
 [ext_resource type="PackedScene" uid="uid://b6aexwvhvgo" path="res://environment/spikes/spikes.tscn" id="2_p4q68"]
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="3_adyui"]
@@ -43,10 +43,8 @@ position = Vector2(427, 195)
 scale = Vector2(2.245, 2.245)
 healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
-
-[node name="foirwizard" parent="." groups=["enemy"] instance=ExtResource("5_4n3ym")]
-position = Vector2(1432, 344)
-
+[node name="foirwizard" parent="." instance=ExtResource("5_4n3ym")]
+position = Vector2(760, 224)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

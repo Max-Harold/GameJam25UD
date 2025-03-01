@@ -22,7 +22,6 @@ const fireball_pad: float = 50
 var foirball:PackedScene
 
 func _ready()->void:
-	material.set_shader_parameter('lvl',Globals.lvl)
 	foirball=preload('res://foirball/foirball.tscn')
 
 func update_health(delta_health: int):
@@ -43,6 +42,7 @@ func die():
 		dies.emit()
 
 func _process(_delta):
+	material.set_shader_parameter('lvl',Globals.lvl)
 	if is_invincible:
 		accum_time += _delta
 		if accum_time >= invincibility_duration:

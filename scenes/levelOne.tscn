@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://v3pukyck27fx"]
+[gd_scene load_steps=7 format=3 uid="uid://v3pukyck27fx"]
 
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="1_3aucs"]
-[ext_resource type="PackedScene" path="res://player/player_health.tscn" id="2_iqruw"]
+[ext_resource type="Script" path="res://scenes/level_one.gd" id="1_g37ie"]
+[ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_m6kpf"]
+[ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="2_iqruw"]
 [ext_resource type="PackedScene" uid="uid://c2xfbqyiyoava" path="res://environment/tile.tscn" id="3_shg1m"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="4_1xy0u"]
 
 [node name="LevelOne" type="Node2D"]
+material = ExtResource("1_m6kpf")
+script = ExtResource("1_g37ie")
 
 [node name="Player" parent="." instance=ExtResource("1_3aucs")]
 position = Vector2(153, 281)
@@ -14,6 +18,10 @@ scale = Vector2(2.45772, 2.45772)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerHealth" parent="CanvasLayer" instance=ExtResource("2_iqruw")]
+offset_left = 776.0
+offset_top = -64.0
+offset_right = 1091.0
+offset_bottom = -37.0
 
 [node name="RigidBody2D" parent="." instance=ExtResource("3_shg1m")]
 position = Vector2(154, 395)
