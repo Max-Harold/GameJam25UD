@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://y0kl0cgygda6"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://bo2xy8wesjq0a"]
->>>>>>> main
 
 [ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_ls6wm"]
 [ext_resource type="Texture2D" uid="uid://baf0lw64xkyy6" path="res://textures/gravel.png" id="2_e2yfe"]

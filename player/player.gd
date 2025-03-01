@@ -45,11 +45,8 @@ func die():
 		dies.emit()
 
 func _process(_delta):
-<<<<<<< HEAD
 	var camera_pos: Vector2 = $Camera2D.global_position
 	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
-=======
->>>>>>> main
 	material.set_shader_parameter('lvl',Globals.lvl)
 	if is_invincible:
 		accum_time += _delta
@@ -74,13 +71,8 @@ func _process(_delta):
 			_animated_sprite.flip_h = true
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
-<<<<<<< HEAD
 	if position.y > 800:
 		die()
-=======
-		if position.y>1300:
-			die()
->>>>>>> main
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.

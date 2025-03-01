@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://cvx3dxhsxmka3"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://n3b3puv7j8m5"]
->>>>>>> main
 
 [ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_ya8qd"]
 [ext_resource type="Texture2D" uid="uid://bn50266jkjl2t" path="res://textures/coal_ore.png" id="2_lfp0g"]
