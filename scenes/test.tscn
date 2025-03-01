@@ -12,15 +12,12 @@
 script = ExtResource("1_bebdf")
 
 [node name="Spikes" parent="." instance=ExtResource("2_p4q68")]
-position = Vector2(560, 403)
+position = Vector2(1231, 403)
 scale = Vector2(1.375, 1.375)
 
 [node name="Spikes2" parent="." instance=ExtResource("2_p4q68")]
-position = Vector2(713, 402)
+position = Vector2(1053, 398)
 scale = Vector2(1.375, 1.375)
-
-[node name="ColorHound" parent="." instance=ExtResource("2_akfne")]
-position = Vector2(1153, 347)
 
 [node name="Wall1" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(311, 292)
@@ -34,13 +31,19 @@ scale = Vector2(0.255, 4.04)
 position = Vector2(487, 463)
 scale = Vector2(2.06156, 2.07098)
 
+[node name="ColorHound" parent="." instance=ExtResource("2_akfne")]
+position = Vector2(988, 204)
+
+[node name="ColorHound2" parent="." instance=ExtResource("2_akfne")]
+position = Vector2(1208, 227)
+
 [node name="Player" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("3_adyui")]
-position = Vector2(935, 202)
+position = Vector2(427, 195)
 scale = Vector2(2.245, 2.245)
 healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
 [node name="foirwizard" parent="." instance=ExtResource("5_4n3ym")]
-position = Vector2(599, 271)
+position = Vector2(606, 362)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

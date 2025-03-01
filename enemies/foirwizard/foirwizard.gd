@@ -16,6 +16,9 @@ var x_velocity: float = SPEED
 @onready var right_raycast: RayCast2D = $RightRaycast
 @onready var left_raycast: RayCast2D = $LeftRaycast
 
+const fireball_scale: float = .7
+const fireball_pad: float = 50
+
 func _ready()->void:
 	x_velocity = SPEED
 	foirball=preload('res://foirball/foirball.tscn')
@@ -61,6 +64,8 @@ func _process(delta:float)->void:
 			var inst=foirball.instantiate()
 			player = get_tree().get_first_node_in_group('player')
 			inst.set_init_data(player.get_center_position() - position,false)
+			inst.scale = Vector2(fireball_scale, fireball_scale)	
+			inst.position += inst.direction * fireball_pad * fireball_scale
 			add_child(inst)
 
 func update_health(change)->void:

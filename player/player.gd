@@ -15,6 +15,7 @@ var health: int = 100
 @export var JUMP_VELOCITY = -500.0
 
 const fireball_scale: float = .5
+const fireball_pad: float = 50
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -51,15 +52,20 @@ func _process(_delta):
 
 	if not is_dead:
 		if Input.is_action_pressed("move_right") and is_on_floor():
-			_animated_sprite.flip_h = false
+			#_animated_sprite.flip_h = false
 			_animated_sprite.play("walk")
 		elif (Input.is_action_pressed("move_left") or  Input.is_action_pressed("move_left")) and is_on_floor():
-			_animated_sprite.flip_h = true
+			#_animated_sprite.flip_h = true
 			_animated_sprite.play("walk")
 		elif is_on_floor():
 			_animated_sprite.play("idle")
 		else:
 			_animated_sprite.stop()
+			
+		if Input.is_action_pressed("move_left"):
+			_animated_sprite.flip_h = true
+		elif Input.is_action_pressed("move_right"):
+			_animated_sprite.flip_h = false
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.
@@ -105,6 +111,7 @@ func _input(event)->void:
 			if event.pressed and Globals.lvl!=0:
 				var inst=foirball.instantiate()
 				inst.position = $ChestMarker.position
-				inst.scale = Vector2(fireball_scale, fireball_scale)				
+				inst.scale = Vector2(fireball_scale, fireball_scale)
 				inst.set_init_data($Camera2D.get_global_mouse_position() - global_position, true)
+				inst.position += inst.direction * fireball_pad * fireball_scale
 				add_child(inst)
