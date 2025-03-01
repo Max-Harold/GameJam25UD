@@ -1,33 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://ptofbjhqrxqh"]
+[gd_scene load_steps=8 format=3 uid="uid://1wol57ye2v8x"]
 
 [ext_resource type="Script" path="res://enemies/foirwizard/foirwizard.gd" id="1_lyjhq"]
-[ext_resource type="Texture2D" uid="uid://tq4wovlg3mkm" path="res://enemies/foirwizard/idle.png" id="2_nky8f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kjswt"]
-atlas = ExtResource("2_nky8f")
-region = Rect2(0, 0, 60, 86)
+[ext_resource type="Texture2D" uid="uid://cygicvymcoyt4" path="res://enemies/foirwizard/graphics/foirball-wizard-walk/foir_wizard_walk_bg_0.png" id="3_8368w"]
+[ext_resource type="Texture2D" uid="uid://dddttynb2l5t" path="res://enemies/foirwizard/graphics/foirball-wizard-walk/foir_wizard_walk_bg_1.png" id="4_4plpt"]
+[ext_resource type="Texture2D" uid="uid://cy6da13ho5n0j" path="res://enemies/foirwizard/graphics/foirball-wizard-walk/foir_wizard_walk_bg_2.png" id="5_i3dl1"]
+[ext_resource type="Texture2D" uid="uid://e6uu2pyn3vrc" path="res://enemies/foirwizard/graphics/foirball-wizard-walk/foir_wizard_walk_bg_3.png" id="6_b1nrc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_16ruf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kjswt")
+"texture": ExtResource("3_8368w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4plpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i3dl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b1nrc")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"walk",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ie2ln"]
-size = Vector2(42, 65)
+size = Vector2(51.5, 64.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="FoirWizard" type="CharacterBody2D"]
 script = ExtResource("1_lyjhq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20, -5)
 sprite_frames = SubResource("SpriteFrames_16ruf")
-animation = &"idle"
+animation = &"walk"
+autoplay = "walk"
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.5)
+position = Vector2(26.25, 35.75)
+shape = SubResource("RectangleShape2D_ie2ln")
+
+[node name="LeftRaycast" type="RayCast2D" parent="."]
+position = Vector2(0, 41)
+target_position = Vector2(-5, 0)
+
+[node name="RightRaycast" type="RayCast2D" parent="."]
+position = Vector2(51, 40)
+target_position = Vector2(5, 0)
+
+[node name="LeftDownRaycast" type="RayCast2D" parent="."]
+position = Vector2(1, 43)
+
+[node name="RightDownRaycast" type="RayCast2D" parent="."]
+position = Vector2(52, 44)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(26.25, 35.75)
 shape = SubResource("RectangleShape2D_ie2ln")

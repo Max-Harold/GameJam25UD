@@ -1,19 +1,26 @@
 extends Sprite2D
-var dest:Vector2
+
+
+var direction:Vector2
+const fireball_speed: float = 1000.0
+var dest_vector: Vector2
 func set_init_data(data):
+	dest_vector = data
 	var pos=get_global_position()
-	var xd=data.x-pos.x
-	var yd=data.y-pos.y
-	var scale=1000000
-	dest=Vector2(pos.x+xd*scale,pos.y+yd*scale)
+	var dx=data.x-pos.x
+	var dy=data.y-pos.y
+	#var scale=1000000
+	direction = Vector2(dx, dy).normalized()
 func _ready()->void:
-	look_at(Vector2(-dest.x,-dest.y))
+	rotate(direction.angle())
+	#look_at(dest_vector)
 func _process(delta: float)->void:
 	var pos=get_global_position()
-	var xd=dest.x-pos.x
-	var yd=dest.y-pos.y
-	var t=sqrt(xd*xd+yd*yd)/10
-	set_global_position(Vector2(pos.x+xd/t,pos.y+yd/t))
+	pos += fireball_speed * delta * direction
+	set_global_position(pos)
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass
-	#queue_free()
+	if body.is_in_group('player'):
+		body.update_health(Globals.damage_done['foirball'])
+	print("colliede with "+body.name)
+	if body.name != "foirwizard":
+		queue_free()

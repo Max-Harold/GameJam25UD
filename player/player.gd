@@ -11,8 +11,8 @@ const invincibility_duration: float = .5
 const health_max: int = 100
 var health: int = 100
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED = 300.0
+@export var JUMP_VELOCITY = -400.0
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
@@ -78,7 +78,8 @@ func _physics_process(delta:  float) -> void:
 		
 		var collider = collision.get_collider()
 		if collision.get_position().y > global_position.y:
-			if collider.name == "ColorHound":
+			print(collider.name)
+			if collider.name == "ColorHound" or collider.name == "foirwizard":
 				collider.queue_free()
 		else:
 			if collider.name == "ColorHound" and not is_invincible:

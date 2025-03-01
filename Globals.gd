@@ -1,9 +1,9 @@
 extends Node
 
 var damage_done = {
-	"foirball": -52,
+	"foirball": -10,
 	"spike": -100,
-	"color_hound": -20
+	"color_hound": -20,
 }
 
 # Called when the node enters the scene tree for the first time.

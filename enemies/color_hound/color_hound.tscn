@@ -119,12 +119,10 @@ shape = SubResource("RectangleShape2D_vk6sm")
 position = Vector2(46.8, 0.4)
 
 [node name="LeftRaycast" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, 19.6)
 target_position = Vector2(-5, 0)
 
 [node name="RightRaycast" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(46.8, 17.6)
 target_position = Vector2(5, 0)
 
