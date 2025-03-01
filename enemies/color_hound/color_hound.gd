@@ -18,6 +18,7 @@ func _ready() -> void:
 	material.set_shader_parameter('lvl',Globals.lvl)
 	x_velocity = -SPEED
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
