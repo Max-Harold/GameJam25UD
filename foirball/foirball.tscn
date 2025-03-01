@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dufjw3nb02rfa"]
+[gd_scene load_steps=6 format=3 uid="uid://dufjw3nb02rfa"]
 
 [ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_ylhmy"]
 [ext_resource type="Texture2D" uid="uid://b511l1hhnfgk7" path="res://foirball/New Piskel (11).png" id="2_6a87k"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jou18"]
 size = Vector2(76.0302, 47.6824)
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_uj4pf"]
 
 [node name="foirball" type="Sprite2D" groups=["enemy", "foirball"]]
 material = ExtResource("1_ylhmy")
@@ -20,6 +22,9 @@ script = ExtResource("2_inwri")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(8.9368, 4.15884)
 shape = SubResource("RectangleShape2D_jou18")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMP3_uj4pf")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
