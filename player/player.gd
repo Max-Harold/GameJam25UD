@@ -47,7 +47,10 @@ func die():
 
 func _process(_delta):
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	var camera_pos: Vector2 = $Camera2D.global_position
 	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
 	material.set_shader_parameter('lvl',Globals.lvl)
