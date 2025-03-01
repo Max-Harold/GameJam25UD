@@ -6,7 +6,7 @@ const fireball_speed: float = 1000.0
 var dest_vector: Vector2
 var plyrspwnd:bool
 var left_source: bool = false
-
+@onready var player=$AudioStreamPlayer
 var lifetime: float = 3.0
 var accum: float = 0.0
 
@@ -21,6 +21,7 @@ func set_init_data(data,playrspwnd):
 func _ready()->void:
 	rotate(direction.angle())
 	material.set_shader_parameter('lvl',Globals.lvl)
+	player.play()
 	#look_at(dest_vector)
 func _process(delta: float)->void:
 	accum += delta
