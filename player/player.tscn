@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b1ioi4bpxgmyn"]
+[gd_scene load_steps=18 format=3 uid="uid://b1ioi4bpxgmyn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6amjw"]
 [ext_resource type="Texture2D" uid="uid://dg0rtbpk2um43" path="res://player/maleBase/full/advnt_full.png" id="2_cuk4v"]
@@ -18,6 +18,18 @@ region = Rect2(288, 64, 32, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rym78"]
 atlas = ExtResource("2_cuk4v")
 region = Rect2(256, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfow4"]
+atlas = ExtResource("2_cuk4v")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpnay"]
+atlas = ExtResource("2_cuk4v")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5icd"]
+atlas = ExtResource("2_cuk4v")
+region = Rect2(128, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rhxl2"]
 atlas = ExtResource("2_cuk4v")
@@ -67,8 +79,17 @@ animations = [{
 "name": &"jump",
 "speed": 3.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfow4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpnay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5icd")
+}],
+"loop": false,
 "name": &"ko",
 "speed": 5.0
 }, {
@@ -104,17 +125,12 @@ script = ExtResource("1_6amjw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l3nvs")
-animation = &"jump"
+animation = &"ko"
 autoplay = "idle"
+frame_progress = 0.551545
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 8.5)
 shape = SubResource("RectangleShape2D_dmwmu")
 
-[node name="Area2D" type="Area2D" parent="." groups=["player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.5, 8.5)
-shape = SubResource("RectangleShape2D_dmwmu")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="Camera2D" type="Camera2D" parent="."]

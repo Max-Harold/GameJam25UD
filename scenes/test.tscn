@@ -1,12 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw1j0nu7440dh"]
 
-[ext_resource type="PackedScene" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
+[ext_resource type="Script" path="res://scenes/level_handler.gd" id="1_bebdf"]
+[ext_resource type="PackedScene" uid="uid://b7wx4ic7bw7hv" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="2_akfne"]
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="3_adyui"]
 [ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="4_0avg7"]
 [ext_resource type="PackedScene" uid="uid://ptofbjhqrxqh" path="res://enemies/foirwizard/foirwizard.tscn" id="5_4n3ym"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_bebdf")
 
 [node name="ColorHound" parent="." instance=ExtResource("2_akfne")]
 position = Vector2(546, 283)
@@ -26,9 +28,37 @@ position = Vector2(487, 463)
 [node name="Player" parent="." node_paths=PackedStringArray("healthbar") instance=ExtResource("3_adyui")]
 position = Vector2(327, 177)
 scale = Vector2(2.245, 2.245)
-healthbar = NodePath("../PlayerHealth")
+healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
-[node name="PlayerHealth" parent="." instance=ExtResource("4_0avg7")]
+
 
 [node name="foirwizard" parent="." instance=ExtResource("5_4n3ym")]
 position = Vector2(912, 232)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerHealth" parent="CanvasLayer" instance=ExtResource("4_0avg7")]
+
+[node name="GameOver" type="CenterContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOver"]
+layout_mode = 2
+
+[node name="Game" type="Label" parent="CanvasLayer/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+text = "GAME OVER"
+
+[node name="Restart" type="Button" parent="CanvasLayer/GameOver/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+text = "Restart"
+
+[connection signal="dies" from="Player" to="." method="_on_player_dies"]
+[connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
