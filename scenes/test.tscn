@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cw1j0nu7440dh"]
+[gd_scene load_steps=11 format=3 uid="uid://cw1j0nu7440dh"]
 
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="1_bebdf"]
 [ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_f2avp"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://1wol57ye2v8x" path="res://enemies/foirwizard/foirwizard.tscn" id="5_4n3ym"]
 [ext_resource type="PackedScene" uid="uid://dk71x8fkicr2g" path="res://enemies/slimer/slimer.tscn" id="7_qjgxa"]
 [ext_resource type="PackedScene" uid="uid://dsx3lc5lg0lbk" path="res://potion.tscn" id="10_oghwa"]
-[ext_resource type="Texture2D" uid="uid://covditsbjk1wa" path="res://green.png" id="11_0svny"]
 
 [node name="Node2D" type="Node2D"]
 material = ExtResource("1_f2avp")
@@ -80,11 +79,7 @@ position = Vector2(544, 320)
 scale = Vector2(2.245, 2.245)
 
 [node name="Potion" parent="." instance=ExtResource("10_oghwa")]
-position = Vector2(704, 384)
-texture = ExtResource("11_0svny")
-
-[node name="Potion2" parent="." instance=ExtResource("10_oghwa")]
-position = Vector2(568, 392)
+position = Vector2(720, 408)
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
