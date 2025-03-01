@@ -11,11 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ccx8tm8dpwkrk" path="res://environment/stone.tscn" id="6_msnth"]
 [ext_resource type="PackedScene" uid="uid://y0kl0cgygda6" path="res://environment/gravel.tscn" id="8_vyqqc"]
 [ext_resource type="PackedScene" uid="uid://c7k46hr77lmh3" path="res://environment/stonealt.tscn" id="9_njnup"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://cvx3dxhsxmka3" path="res://environment/coal.tscn" id="10_nhyjq"]
-=======
-[ext_resource type="PackedScene" uid="uid://n3b3puv7j8m5" path="res://environment/coal.tscn" id="10_nhyjq"]
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://eggeidt2jvcx" path="res://environment/path.tscn" id="13_78sa1"]
 [ext_resource type="PackedScene" uid="uid://ciban304d4lkl" path="res://environment/gold.tscn" id="14_shckq"]
 
@@ -1567,7 +1563,6 @@ scale = Vector2(0.48, 0.48)
 position = Vector2(1984, 84)
 scale = Vector2(0.48, 0.48)
 
-<<<<<<< Updated upstream
 [node name="RigidBody2D339" parent="." instance=ExtResource("4_4giqr")]
 position = Vector2(1923, 394)
 scale = Vector2(0.48, 0.48)
@@ -1576,7 +1571,5 @@ scale = Vector2(0.48, 0.48)
 position = Vector2(1984, 394)
 scale = Vector2(0.48, 0.48)
 
-=======
->>>>>>> Stashed changes
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

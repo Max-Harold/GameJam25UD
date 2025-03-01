@@ -25,7 +25,6 @@ const fireball_pad: float = 50
 var foirball:PackedScene
 
 func _ready()->void:
-	material.set_shader_parameter('lvl',Globals.lvl)
 	foirball=preload('res://foirball/foirball.tscn')
 
 func update_health(delta_health: int):
@@ -46,15 +45,9 @@ func die():
 		dies.emit()
 
 func _process(_delta):
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 	var camera_pos: Vector2 = $Camera2D.global_position
 	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
 	material.set_shader_parameter('lvl',Globals.lvl)
->>>>>>> Stashed changes
 	if is_invincible:
 		accum_time += _delta
 		if accum_time >= invincibility_duration:
@@ -108,6 +101,8 @@ func _physics_process(delta:  float) -> void:
 		if collision.get_position().y > global_position.y:
 			if collider.is_in_group('stompable'):
 				collider.queue_free()
+		if collider.is_in_group('slimer'):
+			update_health(Globals.damage_done['slimer'])
 		#else:
 			#if not is_invincible:
 				#if collider.is_in_group('color_hound'):
