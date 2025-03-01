@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dufjw3nb02rfa"]
+
+[ext_resource type="Script" path="res://foirball.gd" id="1_m03or"]
+[ext_resource type="Texture2D" uid="uid://b511l1hhnfgk7" path="res://New Piskel (11).png" id="2_6a87k"]
+
+[node name="NewPiskel(11)" type="Sprite2D"]
+position = Vector2(-1, 0)
+rotation = 3.14159
+scale = Vector2(0.98, 1)
+texture = ExtResource("2_6a87k")
+script = ExtResource("1_m03or")
