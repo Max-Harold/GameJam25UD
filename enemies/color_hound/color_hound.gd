@@ -13,6 +13,7 @@ var x_velocity: float = -SPEED
 @onready var left_raycast: RayCast2D = $LeftRaycast
 
 func _ready() -> void:
+	material.set_shader_parameter('lvl',Globals.lvl)
 	x_velocity = -SPEED
 
 func _physics_process(delta: float) -> void:

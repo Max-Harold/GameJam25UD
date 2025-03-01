@@ -19,6 +19,7 @@ func _ready()->void:
 	x_velocity = SPEED
 	foirball=preload('res://foirball/foirball.tscn')
 	player = get_tree().get_first_node_in_group('player')
+	material.set_shader_parameter('lvl',Globals.lvl)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -52,14 +53,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta:float)->void:
-	
 	if not player.is_dead:
 		sum+=delta
 		if sum>1:
 			sum=0.0
 			var inst=foirball.instantiate()
 			player = get_tree().get_first_node_in_group('player')
-			print(player)
-			print(player.position)
-			inst.set_init_data(player.position - position)
+			inst.set_init_data(player.position - position,false)
 			add_child(inst)

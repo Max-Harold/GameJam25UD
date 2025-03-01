@@ -16,6 +16,12 @@ var health: int = 100
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
+var foirball:PackedScene
+
+func _ready()->void:
+	material.set_shader_parameter('lvl',Globals.lvl)
+	foirball=preload('res://foirball/foirball.tscn')
+
 func update_health(delta_health: int):
 	if not is_invincible:
 		health = clamp(health + delta_health, 0, health_max)
@@ -85,3 +91,10 @@ func _physics_process(delta:  float) -> void:
 			if collider.name == "ColorHound" and not is_invincible:
 				update_health(Globals.damage_done["color_hound"])
 			
+
+func _input(event)->void:
+	if event is InputEventMouseButton:
+		if event.pressed and Globals.lvl!=0:
+			var inst=foirball.instantiate()
+			inst.set_init_data(event.position-position,true)
+			add_child(inst)

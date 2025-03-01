@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b1ioi4bpxgmyn"]
+[gd_scene load_steps=19 format=3 uid="uid://b1ioi4bpxgmyn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6amjw"]
+[ext_resource type="Material" uid="uid://ca7goeuvehiv" path="res://material.tres" id="1_jrasf"]
 [ext_resource type="Texture2D" uid="uid://dg0rtbpk2um43" path="res://player/maleBase/full/advnt_full.png" id="2_cuk4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnmcs"]
@@ -121,9 +122,11 @@ animations = [{
 size = Vector2(21, 47)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+material = ExtResource("1_jrasf")
 script = ExtResource("1_6amjw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_l3nvs")
 animation = &"idle"
 autoplay = "idle"
