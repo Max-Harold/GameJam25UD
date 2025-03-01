@@ -11,8 +11,8 @@ const invincibility_duration: float = .5
 const health_max: int = 100
 var health: int = 100
 
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -400.0
+@export var SPEED = 350.0
+@export var JUMP_VELOCITY = -500.0
 
 @onready var _animated_sprite = $AnimatedSprite2D
 
