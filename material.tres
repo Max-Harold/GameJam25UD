@@ -4,3 +4,4 @@
 
 [resource]
 shader = ExtResource("1_8q2ka")
+shader_parameter/lvl = 0
