@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="1_3aucs"]
 [ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_m6kpf"]
-[ext_resource type="PackedScene" path="res://player/player_health.tscn" id="2_iqruw"]
+[ext_resource type="PackedScene" uid="uid://bc7jnute1v1jg" path="res://player/player_health.tscn" id="2_iqruw"]
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="2_y7jld"]
 [ext_resource type="PackedScene" uid="uid://c2xfbqyiyoava" path="res://environment/grass.tscn" id="3_shg1m"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="4_1xy0u"]
