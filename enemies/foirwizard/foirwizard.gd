@@ -4,6 +4,7 @@ var sum=0.0
 var player
 var health=50
 
+const playerThreshold: float = 1000
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var SPEED: float = 100.0
@@ -57,7 +58,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta:float)->void:
-	if not player.is_dead:
+	var deltaVector: Vector2 = player.global_position - global_position
+	
+	if not player.is_dead and deltaVector.length() <= playerThreshold:
 		sum+=delta
 		if sum>1:
 			sum=0.0

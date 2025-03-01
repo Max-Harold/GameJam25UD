@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b1ioi4bpxgmyn"]
+[gd_scene load_steps=19 format=3 uid="uid://b1ioi4bpxgmyn"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6amjw"]
-[ext_resource type="Material" uid="uid://dcir7hxytmp4u" path="res://player/player_material.tres" id="1_dapo0"]
+[ext_resource type="Material" path="res://player/player_material.tres" id="1_dapo0"]
 [ext_resource type="Texture2D" uid="uid://dg0rtbpk2um43" path="res://player/maleBase/full/advnt_full.png" id="2_cuk4v"]
-[ext_resource type="AudioStream" uid="uid://c45sexe8dgxx" path="res://sounds/scream.mp3" id="4_ttrrd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnmcs"]
 atlas = ExtResource("2_cuk4v")
@@ -150,6 +149,3 @@ position = Vector2(-12, -32)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.5, 8.5)
 shape = SubResource("RectangleShape2D_dmwmu")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ttrrd")

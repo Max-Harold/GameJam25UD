@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal dies
 
 @export var camera_x_minimum: float = 750.0
+@export var camera_x_maximum: float = 5085.0
 @export var camera_y_maximum: float = 325.0
 
 var is_dead: bool = false
@@ -21,7 +22,6 @@ const fireball_scale: float = .5
 const fireball_pad: float = 50
 
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var player=$AudioStreamPlayer
 
 var foirball:PackedScene
 
@@ -47,7 +47,7 @@ func die():
 
 func _process(_delta):
 	var camera_pos: Vector2 = $Camera2D.global_position
-	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
+	$Camera2D.global_position = Vector2(clamp(global_position.x, camera_x_minimum, camera_x_maximum), min(global_position.y, camera_y_maximum))
 	material.set_shader_parameter('lvl',Globals.lvl)
 	if is_invincible:
 		accum_time += _delta
@@ -72,10 +72,8 @@ func _process(_delta):
 			_animated_sprite.flip_h = true
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
-	if position.y > 400:
-		player.play()
-	#if position.y > 180000:
-		#die()
+	if position.y > 800:
+		die()
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.
@@ -117,7 +115,6 @@ func get_center_position():
 	return $ChestMarker.global_position
 
 func _input(event)->void:
-	player.play()
 	if not is_dead:
 		if event is InputEventMouseButton:
 			if event.pressed and Globals.lvl!=0:
