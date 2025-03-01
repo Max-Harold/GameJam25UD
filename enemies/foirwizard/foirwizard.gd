@@ -66,7 +66,7 @@ func _process(delta:float)->void:
 			sum=0.0
 			var inst=foirball.instantiate()
 			player = get_tree().get_first_node_in_group('player')
-			inst.set_init_data(player.get_center_position() - position,false)
+			inst.set_init_data(player.get_center_position() - global_position,false)
 			inst.scale = Vector2(fireball_scale, fireball_scale)	
 			inst.position += inst.direction * fireball_pad * fireball_scale
 			add_child(inst)
