@@ -15,8 +15,10 @@ func _process(_delta):
 	elif Input.is_action_pressed("ui_left"):
 		_animated_sprite.flip_h = true
 		_animated_sprite.play("walk")
-	else:
+	elif is_on_floor():
 		_animated_sprite.play("idle")
+	else:
+		_animated_sprite.stop()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
