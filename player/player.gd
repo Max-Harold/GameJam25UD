@@ -23,6 +23,7 @@ const fireball_pad: float = 50
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var hurt=$Hurt
 @onready var scream=$Scream
+var playedscream=false
 
 var foirball:PackedScene
 
@@ -75,8 +76,10 @@ func _process(_delta):
 			_animated_sprite.flip_h = true
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
-	if position.y > 400:
+	if position.y > 400 and not playedscream:
+		print('playing scream')
 		scream.play()
+		playedscream=true
 	if position.y > 1800:
 		die()
 
