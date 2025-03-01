@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 signal dies
 
+@export var camera_x_minimum: float = 750.0
+@export var camera_y_maximum: float = 325.0
+
 var is_dead: bool = false
 var is_invincible: bool = false
 var accum_time: float = 0
@@ -43,6 +46,12 @@ func die():
 		dies.emit()
 
 func _process(_delta):
+<<<<<<< Updated upstream
+=======
+	var camera_pos: Vector2 = $Camera2D.global_position
+	$Camera2D.global_position = Vector2(max(global_position.x, camera_x_minimum), min(global_position.y, camera_y_maximum))
+	material.set_shader_parameter('lvl',Globals.lvl)
+>>>>>>> Stashed changes
 	if is_invincible:
 		accum_time += _delta
 		if accum_time >= invincibility_duration:
@@ -66,6 +75,8 @@ func _process(_delta):
 			_animated_sprite.flip_h = true
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
+	if position.y > 800:
+		die()
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.
@@ -86,7 +97,6 @@ func _physics_process(delta:  float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	$Camera2D.align()
 	for i in range(get_slide_collision_count()):
 		var collision: KinematicCollision2D = get_slide_collision(i)
 		var collider = collision.get_collider()

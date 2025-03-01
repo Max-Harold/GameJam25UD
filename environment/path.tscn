@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://eggeidt2jvcx"]
+
+[ext_resource type="Material" uid="uid://bcv1fag7757vx" path="res://material.tres" id="1_70kiv"]
+[ext_resource type="Texture2D" uid="uid://cnvu7uct6b2eg" path="res://textures/dirt_path_side.png" id="2_qa8aj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4av4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqwoa"]
+size = Vector2(128, 128)
+
+[node name="RigidBody2D" type="StaticBody2D"]
+material = ExtResource("1_70kiv")
+physics_material_override = SubResource("PhysicsMaterial_4av4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+use_parent_material = true
+shape = SubResource("RectangleShape2D_qqwoa")
+
+[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
+use_parent_material = true
+position = Vector2(0, -4.5)
+scale = Vector2(4, 4.34375)
+texture = ExtResource("2_qa8aj")
