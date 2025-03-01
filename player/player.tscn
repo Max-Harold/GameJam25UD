@@ -1,5 +1,4 @@
 [gd_scene load_steps=23 format=3 uid="uid://b1ioi4bpxgmyn"]
-
 [ext_resource type="Script" path="res://player/player.gd" id="1_6amjw"]
 [ext_resource type="Material" uid="uid://dcir7hxytmp4u" path="res://player/player_material.tres" id="1_dapo0"]
 [ext_resource type="Texture2D" uid="uid://dg0rtbpk2um43" path="res://player/maleBase/full/advnt_full.png" id="2_cuk4v"]

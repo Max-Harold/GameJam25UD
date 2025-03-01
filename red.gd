@@ -6,7 +6,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			player.play()
 			Globals.lvl=3
 			visible = false
-			await get_tree().create_timer(1.3).timeout
+			get_tree().get_first_node_in_group("root").win()
+			await get_tree().create_timer(3.3).timeout
 			get_tree().change_scene_to_file("res://scenes/levelTwo.tscn")	
 			
 		
