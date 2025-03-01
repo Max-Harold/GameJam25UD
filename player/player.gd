@@ -66,6 +66,8 @@ func _process(_delta):
 			_animated_sprite.flip_h = true
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
+		if position.y>1300:
+			die()
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.

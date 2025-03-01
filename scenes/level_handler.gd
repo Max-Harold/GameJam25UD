@@ -7,7 +7,7 @@ func _ready() -> void:
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	material.set_shader_parameter('lvl',Globals.lvl)
 
 func game_over():
 	$CanvasLayer/GameOver.visible = true
