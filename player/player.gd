@@ -21,7 +21,8 @@ const fireball_scale: float = .5
 const fireball_pad: float = 50
 
 @onready var _animated_sprite = $AnimatedSprite2D
-@onready var player=$AudioStreamPlayer
+@onready var hurt=$Hurt
+@onready var scream=$Scream
 
 var foirball:PackedScene
 
@@ -30,6 +31,8 @@ func _ready()->void:
 
 func update_health(delta_health: int):
 	if not is_invincible:
+		if not is_dead:
+			hurt.play()
 		health = clamp(health + delta_health, 0, health_max)
 		healthbar.change_health(health)
 	if health == 0:
@@ -73,9 +76,9 @@ func _process(_delta):
 		elif Input.is_action_pressed("move_right"):
 			_animated_sprite.flip_h = false
 	if position.y > 400:
-		player.play()
-	#if position.y > 180000:
-		#die()
+		scream.play()
+	if position.y > 1800:
+		die()
 
 func _physics_process(delta:  float) -> void:
 	# Add the gravity.
@@ -117,7 +120,6 @@ func get_center_position():
 	return $ChestMarker.global_position
 
 func _input(event)->void:
-	player.play()
 	if not is_dead:
 		if event is InputEventMouseButton:
 			if event.pressed and Globals.lvl!=0:
