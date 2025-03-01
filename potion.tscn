@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc32hueq6atf5"]
+[gd_scene load_steps=5 format=3 uid="uid://dc32hueq6atf5"]
 
 [ext_resource type="Texture2D" uid="uid://bwkj8sayglvds" path="res://potion.png" id="1_i6q8c"]
 [ext_resource type="Script" path="res://red.gd" id="2_dx0fh"]
+[ext_resource type="AudioStream" uid="uid://dap84hbvxvtin" path="res://sounds/collectPotion.mp3" id="3_ojqbw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyk24"]
 size = Vector2(20, 32)
@@ -14,5 +15,8 @@ script = ExtResource("2_dx0fh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_kyk24")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ojqbw")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
