@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cw1j0nu7440dh"]
 
 [ext_resource type="Script" path="res://scenes/level_handler.gd" id="1_bebdf"]
-[ext_resource type="PackedScene" uid="uid://b7wx4ic7bw7hv" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
+[ext_resource type="PackedScene" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="2_akfne"]
 [ext_resource type="PackedScene" uid="uid://b6aexwvhvgo" path="res://environment/spikes/spikes.tscn" id="2_p4q68"]
 [ext_resource type="PackedScene" uid="uid://b1ioi4bpxgmyn" path="res://player/player.tscn" id="3_adyui"]
@@ -15,22 +15,32 @@ script = ExtResource("1_bebdf")
 [node name="Spikes" parent="." instance=ExtResource("2_p4q68")]
 position = Vector2(1231, 403)
 scale = Vector2(1.375, 1.375)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Spikes2" parent="." instance=ExtResource("2_p4q68")]
 position = Vector2(1053, 398)
 scale = Vector2(1.375, 1.375)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Wall1" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(311, 292)
 scale = Vector2(0.425, 4.04)
+collision_layer = 3
+collision_mask = 3
 
 [node name="Wall2" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(875, 298)
 scale = Vector2(0.255, 4.04)
+collision_layer = 3
+collision_mask = 3
 
 [node name="TmpPlatform" parent="." instance=ExtResource("1_mb6cc")]
 position = Vector2(487, 463)
 scale = Vector2(2.06156, 2.07098)
+collision_layer = 3
+collision_mask = 3
 
 [node name="ColorHound" parent="." instance=ExtResource("2_akfne")]
 position = Vector2(988, 204)
@@ -45,6 +55,7 @@ healthbar = NodePath("../CanvasLayer/PlayerHealth")
 
 [node name="foirwizard" parent="." instance=ExtResource("5_4n3ym")]
 position = Vector2(1432, 344)
+
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -74,6 +85,9 @@ text = "Restart"
 [node name="Slimer" parent="." instance=ExtResource("7_qjgxa")]
 position = Vector2(544, 320)
 scale = Vector2(2.245, 2.245)
+disable_mode = 2
+collision_layer = 1
+collision_mask = 1
 
 [connection signal="dies" from="Player" to="." method="_on_player_dies"]
 [connection signal="pressed" from="CanvasLayer/GameOver/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

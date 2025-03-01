@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://7cdu2ogmxvek"]
+[gd_scene load_steps=3 format=3 uid="uid://c7w4w8frwqcst"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3scrr"]
 
@@ -6,6 +6,8 @@
 size = Vector2(60, 5)
 
 [node name="TestPlatform" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(30, 2.77)
