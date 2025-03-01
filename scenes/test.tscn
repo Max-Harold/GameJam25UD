@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw1j0nu7440dh"]
 
-[ext_resource type="PackedScene" uid="uid://b7wx4ic7bw7hv" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
+[ext_resource type="PackedScene" path="res://environment/tmp_platform.tscn" id="1_mb6cc"]
 [ext_resource type="PackedScene" uid="uid://bkg6injskej1a" path="res://enemies/color_hound/color_hound.tscn" id="2_akfne"]
 
 [node name="Node2D" type="Node2D"]

@@ -3,16 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://b511l1hhnfgk7" path="res://foirball/New Piskel (11).png" id="2_6a87k"]
 [ext_resource type="Script" path="res://foirball/foirball.gd" id="2_inwri"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjukv"]
-size = Vector2(81.6325, 56.0002)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jou18"]
+size = Vector2(76.0302, 47.6824)
 
-[node name="NewPiskel(11)" type="Sprite2D"]
-position = Vector2(-1, 0)
+[node name="foirball" type="Sprite2D"]
+position = Vector2(1.90735e-06, 9.53674e-07)
 rotation = 3.14159
-scale = Vector2(0.98, 1)
+scale = Vector2(0.681549, 0.81291)
 texture = ExtResource("2_6a87k")
 script = ExtResource("2_inwri")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.14284, 4.00002)
-shape = SubResource("RectangleShape2D_xjukv")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8.9368, 4.15884)
+shape = SubResource("RectangleShape2D_jou18")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

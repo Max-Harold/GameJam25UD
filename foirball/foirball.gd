@@ -11,3 +11,5 @@ func _process(delta: float)->void:
 	var yd=dest.y-pos.y
 	var t=sqrt(xd*xd+yd*yd)/10
 	set_position(Vector2(pos.x+xd/t,pos.y+yd/t))
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	queue_free()
