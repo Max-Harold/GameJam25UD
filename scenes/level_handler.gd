@@ -18,7 +18,8 @@ func game_over():
 	$CanvasLayer/GameOver/VBoxContainer/Game.text = "Game over"
 	$CanvasLayer/GameOver.visible = true
 	$CanvasLayer/GameOver/VBoxContainer/Restart.visible = true
-
+	if Globals.lvl != 0 and $CanvasLayer2 != null:
+		$CanvasLayer2.visible = false
 func _on_player_dies() -> void:
 	game_over()
 
